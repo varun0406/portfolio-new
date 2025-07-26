@@ -13,14 +13,12 @@ import {
   Mail, 
   Phone, 
   Github,
-  Linkedin,
   Calendar,
   Award,
   Database,
   Shield,
   Smartphone,
   Home,
-  Gamepad2,
   Bell
 } from 'lucide-react';
 import './App.css';
