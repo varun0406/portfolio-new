@@ -41,19 +41,19 @@ jobs:
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         project_id: ${{ secrets.GCP_PROJECT_ID }}
     
-    - name: Configure Docker for GCR
-      run: gcloud auth configure-docker
+    - name: Configure Docker for Artifact Registry
+      run: gcloud auth configure-docker us-docker.pkg.dev
     
     - name: Build and push Docker image
       run: |
-        docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/varun-portfolio:${{ github.sha }} .
-        docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/varun-portfolio:${{ github.sha }}
+        docker build -t us-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/varun-portfolio/varun-portfolio:${{ github.sha }} .
+        docker push us-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/varun-portfolio/varun-portfolio:${{ github.sha }}
     
     - name: Deploy to VM
       run: |
         gcloud compute ssh ${{ secrets.VM_NAME }} --zone=${{ secrets.VM_ZONE }} --command="
-          docker pull gcr.io/${{ secrets.GCP_PROJECT_ID }}/varun-portfolio:${{ github.sha }}
+          docker pull us-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/varun-portfolio/varun-portfolio:${{ github.sha }}
           docker stop varun-portfolio || true
           docker rm varun-portfolio || true
-          docker run -d --name varun-portfolio -p 80:80 --restart unless-stopped gcr.io/${{ secrets.GCP_PROJECT_ID }}/varun-portfolio:${{ github.sha }}
+          docker run -d --name varun-portfolio -p 80:80 --restart unless-stopped us-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/varun-portfolio/varun-portfolio:${{ github.sha }}
         " 

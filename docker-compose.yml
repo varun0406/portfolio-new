@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   portfolio:
-    image: gcr.io/pet-pocket-5300/varun-portfolio:latest
+    image: us-docker.pkg.dev/pet-pocket-5300/varun-portfolio/varun-portfolio:latest
     container_name: varun-portfolio
     ports:
       - "80:80"
