@@ -1,0 +1,30 @@
+{
+  "short_name": "Varun Deepak Kotwani",
+  "name": "Varun Deepak Kotwani - Data Analytics, AI & Full-Stack Development Expert",
+  "description": "Transforming Business with Data-Driven Intelligence. We test hypotheses with data to build intelligent solutions and drive measurable outcomes.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#6366f1",
+  "background_color": "#f8fafc",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "education"],
+  "lang": "en",
+  "dir": "ltr"
+} 
